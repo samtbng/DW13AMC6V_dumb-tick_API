@@ -44,7 +44,7 @@ app.group("/api/v1", (router) => {
 
 
     router.get('/categories', categories.index) //show all categories
-    router.get('/category', categories.create) //create new category
+    router.post('/category', categories.create) //create new category
     router.get('/category/:id', categories.perCategory) //show all events per category
 
 
