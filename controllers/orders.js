@@ -3,6 +3,7 @@ const orders = models.orders
 const users = models.users
 const events = models.events
 const categories = models.categories
+const { Op } = require('sequelize')
 
 exports.index = (req, res) => {
     orders.findAll({
@@ -31,7 +32,7 @@ exports.pending = (req, res) => {
             {
                 model: orders,
                 as: "orders",
-                where: { status: "pending" },
+                where: { status: {[Op.notLike]: 'approved'} },
                 include: [
                     {
                         model: events,
