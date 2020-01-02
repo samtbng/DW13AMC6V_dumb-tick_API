@@ -20,7 +20,7 @@ const likes = require('./controllers/likes')
 const app = express()
 
 //define the server port
-const port = 5000
+const port = process.env.PORT || 5000
 
 //allow this app to receive incoming json request
 app.use(bodyParser.json())
@@ -75,7 +75,7 @@ app.group("/api/v1", (router) => {
 
 app.get('/', (req, res) => {
     //res means respone, and it send string to the API
-    res.send('Hello Express')
+    res.send('Dumb-tick API Samuel Tobing')
 })
 
 app.listen(port, () => console.log(`listening on port ${port}!`))
