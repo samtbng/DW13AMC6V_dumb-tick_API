@@ -46,7 +46,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        title: "Shopee Liga ",
+        title: "Shopee Liga 1",
         categoryId: 1,
         startTime: new Date("2019-12-31 08:00"),
         endTime: new Date("2019-12-31 18:00"),
@@ -58,6 +58,18 @@ module.exports = {
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+      {
+        title: "Tulus Intimate Night",
+        categoryId: 2,
+        startTime: "2020-01-05 20:00",
+        endTime: "2020-01-05 23:00",
+        price: 250000,
+        description: "Looking at its layout. the point of using Lorem Ipsum is has a more-or-less normal distribution of letters, making it look like readable English",
+        address: "JCC",
+        urlMaps: "link",
+        img: "http://s3-ap-southeast-1.amazonaws.com/eventbanget-media/wp-content/uploads/2019/06/13155720/61132438_2305920342836139_8883526113831488131_n.jpg",
+        createdBy: "adcd621e-a008-4516-9b3b-14f6e400fe0a"
       },
 
     ], {});

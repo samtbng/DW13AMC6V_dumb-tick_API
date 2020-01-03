@@ -2,7 +2,23 @@
 module.exports = (sequelize, DataTypes) => {
   const users = sequelize.define('users', {
     username: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      unique:true,
+      validate: {
+        isUnique: (value, next) => {
+          users.findOne({where:{email:value}})
+          .then(result => {
+            if(result===null){
+              return next();
+            }else {
+              return next("Email Sudah digunakan, silakan gunakan email yang lain");
+            }
+          })
+          .catch(err => next(err))
+        }
+      }
+    },
     birthday:DataTypes.DATE,
     password: DataTypes.STRING,
     fullname: DataTypes.STRING,

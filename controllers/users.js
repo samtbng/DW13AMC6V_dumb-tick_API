@@ -1,5 +1,6 @@
 const models = require('../models')
 const jwt = require('jsonwebtoken')
+var Sequelize = require('sequelize')
 const users = models.users
 const events = models.events
 const likes = models.likes
@@ -33,6 +34,9 @@ exports.registration = (req, res) => {
         const id = user.id
         const token = jwt.sign({ userJwt: id }, 'dumbways')
         res.send({ msg: "success", id, token })
+    }).catch(Sequelize.ValidationError, err=> {
+        const msg= err.errors
+        res.status(422).send(msg);
     }).catch(err => res.send(err))
 }
 
