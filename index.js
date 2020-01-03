@@ -52,6 +52,7 @@ app.group("/api/v1", (router) => {
     router.post('/event', events.create) //create new event
     router.get('/events/:title/search', events.indexSearch) //create new event
     router.get('/event/:id', events.show) //show detail event
+    router.put('/event/:id', events.update) //edit event
     router.get('/category/:id/events', events.perCategory) //show all events
     router.get('/events/:start_time', events.indexToday) //show all events
     // router.get('/events/:start_time', events.indexTomorrow) //show all events

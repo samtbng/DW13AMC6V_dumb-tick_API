@@ -129,6 +129,17 @@ exports.create = (req, res) => {
     events.create(req.body).then(data => res.send(data)).catch(err => { res.send(err) })
 }
 
+exports.update = (req, res) => {
+    orders.update(
+        {
+            categoryId:req.body.categoryId,
+            startTime:req.body.startTime,
+            endTime:req.body.endTime,
+        },
+        { where: { id: req.params.id } },
+    ).then(data => res.send(data)).catch(err => { res.send(err) })
+}
+
 exports.perCategory = (req, res) => {
     categories.findOne({
         attributes: ['id', 'name'],
