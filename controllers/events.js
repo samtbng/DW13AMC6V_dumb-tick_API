@@ -77,7 +77,7 @@ exports.indexSearch = (req, res) => {
     events.findAll({
         where:
         {
-            title: { [Op.like]: [`%${req.params.title}%`]}
+            title: { [Op.like]: `%${req.params.title}%`}
         },
         include: [
             {
