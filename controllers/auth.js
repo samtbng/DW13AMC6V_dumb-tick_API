@@ -6,9 +6,10 @@ exports.login = (req, res) => {
     const password = req.body.password
     User.findOne({ where: { email, password } }).then(user => {
         if (user) {
+            const fullname = user.id
             const id = user.id
             const token = jwt.sign({ userJwt: id }, 'dumbways')
-            res.send({ id, token, login: true })
+            res.send({ id, token, fullname, login: true })
         } else {
             res.send({ login: false, error: true, message: "Wrong email or password!" })
         }
