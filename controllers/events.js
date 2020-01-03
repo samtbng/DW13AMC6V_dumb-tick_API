@@ -130,7 +130,7 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    orders.update(
+    events.update(
         {
             categoryId:req.body.categoryId,
             startTime:req.body.startTime,
