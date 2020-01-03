@@ -8,7 +8,7 @@ const likes = models.likes
 
 
 exports.index = (req, res) => {
-    users.findAll({ attributes: { exclude: ['password'] } })
+    users.findAll()
         .then(user => res.send(user)).catch(err => res.send(err))
 }
 
@@ -33,11 +33,11 @@ exports.registration = (req, res) => {
     }).then(user => {
         const id = user.id
         const token = jwt.sign({ userJwt: id }, 'dumbways')
-        res.send({ msg: "success", id, token })
+        res.send({ error:false, msg: "success", id, token })
     }).catch(Sequelize.ValidationError, err=> {
         const msg= err.errors
-        res.status(422).send(msg);
-    }).catch(err => res.send(err))
+        res.status(422).send({msg, error:true});
+    }).catch(err => res.send({err, error:true}))
 }
 
 exports.showOne = (req, res) => {
