@@ -135,6 +135,7 @@ exports.update = (req, res) => {
             categoryId:req.body.categoryId,
             startTime:req.body.startTime,
             endTime:req.body.endTime,
+            urlMaps:req.body.urlMaps
         },
         { where: { id: req.params.id } },
     ).then(data => res.send(data)).catch(err => { res.send(err) })
